@@ -1,24 +1,56 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Главная страница</title>
-  </head>
-  <body>
+<head>
+	<style>
+	body {
+	background-color:#000;
+	margin:-10;
+	overflow: hidden;
+	}
+	.bg {
+	margin:0;
+	height:100%;
+	background: url(https://cdn.discordapp.com/attachments/545320004858413116/1024733617479491675/unknown.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter:blur(5px);
+	}
+	.clock-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%;
+	background-color: rgba(0,0,0,0.5);
+	padding:20px;
+	border-radius:40px;
+	}
+	p {
+	font-size:4em;
+	text-align: center;
+	color: #fff;
+	}
+	</style>
+	</head>
+	
+	<body>
 	<script>
-		var x = setInterval(function() {
-			let d = new Date();
-			let d2 = new Date(new Date (new Date( new Date().setHours(23) ).setMinutes(15)).setSeconds(0))
-			let dd = d2-d
-			var daysDifference = Math.floor(dd/1000/60/60/24);
-			dd -= daysDifference*1000*60*60*24
-			var hoursDifference = Math.floor(dd/1000/60/60);
-			dd -= hoursDifference*1000*60*60
-			var minutesDifference = Math.floor(dd/1000/60);
-			dd -= minutesDifference*1000*60
-			var secondsDifference = Math.floor(dd/1000);
-			document.body.innerHTML = "<h1>" + hoursDifference + ":" + minutesDifference + ":" + secondsDifference + "</h1>"
-		}, 1000)
-    </script>
-  </body>
-</html>
+	var x = setInterval(function() {
+		let d = new Date();
+		let d2 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
+		let dd = d2-d
+		var daysDifference = Math.floor(dd/1000/60/60/24);
+		dd -= daysDifference*1000*60*60*24
+		
+		var hoursDifference = Math.floor(dd/1000/60/60);
+		dd -= hoursDifference*1000*60*60
+		var minutesDifference = Math.floor(dd/1000/60);
+		dd -= minutesDifference*1000*60
+		var secondsDifference = Math.floor(dd/1000);
+		document.getElementById('clock').innerHTML = hoursDifference + ":" + minutesDifference + ":" + secondsDifference
+	}, 1000)
+		</script>
+	<div class="bg">
+	</div>
+	<div class="clock-box">
+	<p id="clock"></p>
+	</div>
+	</body>
