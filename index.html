@@ -45,7 +45,7 @@
 	<script type="text/javascript" src="http://timeapi.org/utc/now.json?callback=myCallback"></script>
 	<script>
 	var x = setInterval(function() {
-		var d = new Date(json.dateString);
+		var d = new Date();
 		let b1 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
 		let l1 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
 		let b2 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(10)).setSeconds(0))
