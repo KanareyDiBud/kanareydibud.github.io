@@ -37,9 +37,15 @@
 	</head>
 	
 	<body>
+	<script type="text/javascript">
+		function myCallback(json) {
+			alert(new Date(json.dateString));
+		}
+	</script>
+	<script type="text/javascript" src="http://timeapi.org/utc/now.json?callback=myCallback"></script>
 	<script>
 	var x = setInterval(function() {
-		let d = new Date();
+		var d = new Date(json.dateString);
 		let b1 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
 		let l1 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
 		let b2 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(10)).setSeconds(0))
@@ -64,6 +70,7 @@
 		})
 	}, 1000)
 		</script>
+	
 	<div class="bg">
 	</div>
 	<div class="clock-box">
