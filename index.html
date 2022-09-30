@@ -23,13 +23,8 @@
 	padding:20px;
 	border-radius:40px;
 	}
-	.para {
-	font-size:1em;
-	text-align: center;
-	color: #fff;
-	}
 	p {
-	font-size:8em;
+	font-size:9em;
 	text-align: center;
 	color: #fff;
 	}
@@ -37,26 +32,28 @@
 	</head>
 	
 	<body>
-	<script type="text/javascript">
-		function myCallback(json) {
-			alert(new Date(json.dateString));
-		}
-	</script>
-	<script type="text/javascript" src="http://timeapi.org/utc/now.json?callback=myCallback"></script>
 	<script>
 	var x = setInterval(function() {
-		var d = new Date();
+		//let d = new Date();
+		fetch("https://worldtimeapi.org/api/ip")
+		.then(response => response.json())
+		.then(data => {
+		
+		let d = new Date(data.unixtime*1000);
+		let dor = new Date();
 		let b1 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
 		let l1 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
 		let b2 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(10)).setSeconds(0))
 		let l2 = new Date(new Date (new Date( new Date().setHours(15) ).setMinutes(30)).setSeconds(0))
 		let b3 = new Date(new Date (new Date( new Date().setHours(15) ).setMinutes(45)).setSeconds(0))
 		let l3 = new Date(new Date (new Date( new Date().setHours(17) ).setMinutes(5)).setSeconds(0))
-		let b4 = new Date(new Date (new Date( new Date().setHours(17) ).setMinutes(15)).setSeconds(0))
-		let l4 = new Date(new Date (new Date( new Date().setHours(18) ).setMinutes(35)).setSeconds(0))
+		let b4 = new Date(new Date (new Date( new Date().setHours(21) ).setMinutes(40)).setSeconds(0))
+		let l4 = new Date(new Date (new Date( new Date().setHours(22) ).setMinutes(35)).setSeconds(0))
 		var pars = [l4,b4,l3,b3,l2,b2,l1,b1]
 		pars.forEach((element) => {
 			let dd = element-d
+			let dd2 = element-dor
+			//console.log(dd, dd2)
 			var daysDifference = Math.floor(dd/1000/60/60/24);
 			dd -= daysDifference*1000*60*60*24
 			var hoursDifference = Math.floor(dd/1000/60/60);
@@ -68,9 +65,9 @@
 				document.getElementById('clock').innerHTML = ('0' + hoursDifference).slice(-2) + ":" + ('0' + minutesDifference).slice(-2) + ":" + ('0' + secondsDifference).slice(-2)
 			}
 		})
+		})
 	}, 1000)
 		</script>
-	
 	<div class="bg">
 	</div>
 	<div class="clock-box">
