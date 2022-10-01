@@ -24,9 +24,24 @@
 	border-radius:40px;
 	}
 	p {
-	font-size:9em;
+	font-size:9vw;
 	text-align: center;
 	color: #fff;
+	line-height: 2px;
+	}
+	.hiden {
+		font-size:1px;
+		text-align: center;
+		color:rgba(255, 255, 255, 0)f;
+	}
+	.dopari {
+		position: absolute;
+		font-size:2vw;
+		text-align: center;
+		color: #fff;
+		line-height: 2px;
+		left: 32%;
+		top: 15%;
 	}
 	</style>
 	</head>
@@ -35,11 +50,21 @@
 	<script>
 	var x = setInterval(function() {
 		//let d = new Date();
-		fetch("https://worldtimeapi.org/api/ip")
+		//left: 7.1em;
+		//top: 1.2em;
+		if (document.getElementById("myspan").childNodes[0].textContent == "notdiff"){
+		fetch("https://worldtimeapi.org/api/timezone/Asia/Almaty")
 		.then(response => response.json())
 		.then(data => {
-		
-		let d = new Date(data.unixtime*1000);
+		try	{
+			console.log(diff)
+		}
+		catch {
+			diff = new Date() - new Date(data.unixtime*1000)
+			document.getElementById("myspan").innerHTML = diff
+		}
+		})}
+		let d = new Date() - diff;
 		let dor = new Date();
 		let b1 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
 		let l1 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
@@ -65,12 +90,13 @@
 				document.getElementById('clock').innerHTML = ('0' + hoursDifference).slice(-2) + ":" + ('0' + minutesDifference).slice(-2) + ":" + ('0' + secondsDifference).slice(-2)
 			}
 		})
-		})
 	}, 1000)
 		</script>
 	<div class="bg">
+	<p id="myspan" class="hiden">notdiff</p>
 	</div>
 	<div class="clock-box">
+	<p class="dopari">До конца пары осталось</p>
 	<p id="clock"></p>
 	</div>
 	</body>
