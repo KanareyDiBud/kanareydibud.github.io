@@ -65,16 +65,25 @@
 		}
 		})}
 		let d = new Date() - diff;
-		let dor = new Date();
-		let b1 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
-		let l1 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
-		let b2 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(10)).setSeconds(0))
-		let l2 = new Date(new Date (new Date( new Date().setHours(15) ).setMinutes(30)).setSeconds(0))
-		let b3 = new Date(new Date (new Date( new Date().setHours(15) ).setMinutes(45)).setSeconds(0))
-		let l3 = new Date(new Date (new Date( new Date().setHours(17) ).setMinutes(5)).setSeconds(0))
-		let b4 = new Date(new Date (new Date( new Date().setHours(17) ).setMinutes(15)).setSeconds(0))
-		let l4 = new Date(new Date (new Date( new Date().setHours(2) ).setMinutes(45)).setSeconds(0))
-		var pars = [l4,b4,l3,b3,l2,b2,l1,b1]
+		
+		let b11 = new Date(new Date (new Date( new Date().setHours(8) ).setMinutes(0)).setSeconds(0))
+		let l11 = new Date(new Date (new Date( new Date().setHours(9) ).setMinutes(20)).setSeconds(0))
+		let b12 = new Date(new Date (new Date( new Date().setHours(9) ).setMinutes(30)).setSeconds(0))
+		let l12 = new Date(new Date (new Date( new Date().setHours(10) ).setMinutes(50)).setSeconds(0))
+		let b13 = new Date(new Date (new Date( new Date().setHours(11) ).setMinutes(10)).setSeconds(0))
+		let l13 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(30)).setSeconds(0))
+		let b14 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
+		let l14 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(00)).setSeconds(0))
+
+		let b21 = new Date(new Date (new Date( new Date().setHours(12) ).setMinutes(40)).setSeconds(0))
+		let l21 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(0)).setSeconds(0))
+		let b22 = new Date(new Date (new Date( new Date().setHours(14) ).setMinutes(10)).setSeconds(0))
+		let l22 = new Date(new Date (new Date( new Date().setHours(15) ).setMinutes(30)).setSeconds(0))
+		let b23 = new Date(new Date (new Date( new Date().setHours(15) ).setMinutes(45)).setSeconds(0))
+		let l23 = new Date(new Date (new Date( new Date().setHours(17) ).setMinutes(5)).setSeconds(0))
+		let b24 = new Date(new Date (new Date( new Date().setHours(17) ).setMinutes(15)).setSeconds(0))
+		let l24 = new Date(new Date (new Date( new Date().setHours(18) ).setMinutes(35)).setSeconds(0))
+		var pars = [l24,b24,l23,b23,l22,b22,l21,b21,l14,b14,l13,b13,l12,b12,l11,b11]
 		pars.forEach((element) => {
 			let dd = element-d
 			let dd2 = element-dor
