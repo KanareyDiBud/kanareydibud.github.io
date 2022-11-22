@@ -165,7 +165,7 @@
 	}
 	//Функция преобразования времени формата UNIX в "ЧЧ:ММ:СС"
 	function u2t(unix) {
-		unix -= 60*60*1000
+		unix -= 0
 		return nTo0n(new Date(unix).getHours())+":"+nTo0n(new Date(unix).getMinutes())+":"+nTo0n(new Date(unix).getSeconds())
 	}
 	//Функции показа/скрытия окна смены группы 
