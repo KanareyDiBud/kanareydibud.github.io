@@ -17,21 +17,27 @@
 	let l24 = t2u("18:35:00")
 	var debugoffset = 0
 	var storage = window.localStorage;
+
+	document.title = "pvku.kz | Загрузка...hide-on-fullscreen"
+
 	// [день[группа[массив расписания]]]
 	var shedule = csv2json
 	var title_str = ""
 	//Скрытие кнопок при переходе в полноэкранный режим
 	window.onresize = function(){
 		hof = document.getElementsByClassName("hide-on-fullscreen")
+		abt = document.getElementById("about")
 			if( isFullScreen()) {
 				for (i=0; i<hof.length; i++) {
     				hof[i].style.top = '-4em';
 				}
+				abt.style.opacity = '0'
 			}
 			else {
 				for (i=0; i<hof.length; i++) {
     				hof[i].style.top = '0';
 				}
+				abt.style.opacity = '1'
 			}
 		};
 	// Реакция на двойное нажатие по экрану
@@ -271,30 +277,52 @@
 		let clock = document.getElementsByClassName("clock-box")[0]
 		toggle_element_visibility(clock)
 	}
+	//Функции показа/скрытия "о сайте"
+	function show_about(){
+		let popup_about = document.getElementById("popup_about")
+		let colorchanger = document.getElementById("colorchanger")
+		let styler = document.getElementById("styler")
+
+		if(styler.style.scale != 0) {
+			changeBG()
+		}
+		if(colorchanger.style.scale != 0) {
+			changeColor()
+		}
+		toggle_element_visibility_from_hidden_state(popup_about)
+		clockToggle()
+	}
 	//Функции показа/скрытия выбора фона
 	function changeBG() {
+		let popup_about = document.getElementById("popup_about")
 		let styler = document.getElementById("styler")
 		let colorchanger = document.getElementById("colorchanger")
-		let clock = document.getElementsByClassName("clock-box")[0]
 		
 		if(colorchanger.style.scale != 0) {
 			changeColor()
+		}
+		if(popup_about.style.scale != 0) {
+			show_about()
 		}
 		toggle_element_visibility_from_hidden_state(styler)
 		clockToggle()
 	}
 	// 
 	function changeColor() {
+		let popup_about = document.getElementById("popup_about")
 		let colorchanger = document.getElementById("colorchanger")
 		let styler = document.getElementById("styler")
-		let clock = document.getElementsByClassName("clock-box")[0]
 
 		if(styler.style.scale != 0) {
 			changeBG()
 		}
+		if(popup_about.style.scale != 0) {
+			show_about()
+		}
 		clockToggle()
 		toggle_element_visibility_from_hidden_state(colorchanger)
 	}
+
 	//Целочисельное деление
 	function div(val, by){
     		return (val - val % by) / by;
