@@ -18,7 +18,7 @@
 	var debugoffset = 0
 	var storage = window.localStorage;
 
-	document.title = "pvku.kz | Загрузка...hide-on-fullscreen"
+	document.title = "Таймер ПВКУ"
 
 	// [день[группа[массив расписания]]]
 	var shedule = csv2json
