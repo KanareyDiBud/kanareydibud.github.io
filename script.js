@@ -238,10 +238,36 @@
 		str_splitted = str.split(":")
 		return new Date().setHours(str_splitted[0], str_splitted[1], str_splitted[2])
 	}
+	//Функция преобразования арабских чисел в римские
+	function toRoman(num) {
+	  const romanNumerals = {
+		M: 1000,
+		CM: 900,
+		D: 500,
+		CD: 400,
+		C: 100,
+		XC: 90,
+		L: 50,
+		XL: 40,
+		X: 10,
+		IX: 9,
+		V: 5,
+		IV: 4,
+		I: 1
+	  };
+	  let roman = '';
+	  for (let key in romanNumerals) {
+		while (num >= romanNumerals[key]) {
+		  roman += key;
+		  num -= romanNumerals[key];
+		}
+	  }
+	  return roman;
+	}
 	//Функция преобразования времени формата UNIX в "ЧЧ:ММ:СС"
 	function u2t(unix) {
 		unix -= 6*60*60*1000
-		return nTo0n(new Date(unix).getHours())+":"+nTo0n(new Date(unix).getMinutes())+":"+nTo0n(new Date(unix).getSeconds())
+		return toRoman(new Date(unix).getHours())+":"+toRoman(new Date(unix).getMinutes())+":"+toRoman(new Date(unix).getSeconds())
 	}
 	// Функция универсального показа/скрытия элемента
 	function toggle_element_visibility(e) {
@@ -347,7 +373,6 @@
 			}
 			catch {
 				diff = new Date() - Date.parse(data.datetime.slice(0,-6))
-				console.log("Апи говно "+diff)
 				console.log("Текущая дата "+Date.parse(new Date())+new Date())
 				console.log("Алматы "+Date.parse(data.datetime.slice(0,-6))+data.datetime)
 				document.getElementById("myspan").innerHTML = diff
