@@ -1,0 +1,82 @@
+.logotext {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+}
+.centerfy {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15em;
+}
+.text {
+    font-size: 2vw;
+}
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Поплавок четыре колонки бок о бок */
+.column {
+float: left;
+width: 25%;
+padding: 0 1vw;
+padding-top: 0.5vw;
+}
+
+/* Удалите лишние левые и правые поля из-за заполнения столбцов */
+.row {margin: 0 10%; height: 10vw;}
+
+/* Очистить поплавки после столбцов */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Стиль встречных карт */
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* это добавляет эффект "карточек" */
+padding: 0.1vw;
+text-align: center;
+background-color: #f1f1f1;
+height:fit-content;
+border-radius: 0.2vw;
+}
+
+/* Адаптивные столбцы - один макет столбца (вертикальный) на небольших экранах */
+@media screen and (max-width: 46vw) {
+.column {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.1vw;
+}
+}
+
+.button-set {
+    height: 3vw;
+    width: 70%;
+    background-color: cornflowerblue;
+    border-radius: 0.2vw;
+    font-size: 1vw;
+    border-color:aliceblue;
+    color: aliceblue;
+    cursor: pointer;
+}
+.image-set {
+    max-width: 95%;
+    max-height: 100%;
+    border-radius: 0.2vw;
+}
+.bg {
+	margin:0 auto;
+	height:100%;
+	background: blue;
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+}

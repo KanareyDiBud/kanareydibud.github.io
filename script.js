@@ -267,7 +267,7 @@
 	//Функция преобразования времени формата UNIX в "ЧЧ:ММ:СС"
 	function u2t(unix) {
 		unix -= 6*60*60*1000
-		return toRoman(new Date(unix).getHours())+":"+toRoman(new Date(unix).getMinutes())+":"+toRoman(new Date(unix).getSeconds())
+		return nTo0n(new Date(unix).getHours())+":"+nTo0n(new Date(unix).getMinutes())+":"+nTo0n(new Date(unix).getSeconds())
 	}
 	// Функция универсального показа/скрытия элемента
 	function toggle_element_visibility(e) {
