@@ -1,6 +1,12 @@
 document.body.addEventListener('click', function() {
-    // Play the sound
+    // Get the sound element
     let sound = document.getElementById('coin-sound');
+    
+    // Stop and reset the sound
+    sound.pause();
+    sound.currentTime = 0;
+    
+    // Play the sound
     sound.play();
 
     // Randomly choose between heads and tails video
